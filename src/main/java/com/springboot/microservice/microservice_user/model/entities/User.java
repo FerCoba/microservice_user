@@ -30,17 +30,20 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(unique = true, length = 30)
+	@Column(name = "USERNAME", unique = true, length = 30)
 	private String userName;
-	@Column(length = 100)
+	@Column(name = "PASSWORD", length = 100)
 	private String password;
+	@Column(name = "ENABLED")
 	private Boolean enabled;
+	@Column(name = "FIRSTNAME")
 	private String firstName;
+	@Column(name = "LASTNAME")
 	private String lastName;
-	@Column(unique = true, length = 100)
+	@Column(name = "EMAIL", unique = true, length = 100)
 	private String email;
 
-	@JoinTable(uniqueConstraints = { @UniqueConstraint(columnNames = { "user_id", "roles_id" }) })
+	@JoinTable(uniqueConstraints = { @UniqueConstraint(columnNames = { "USER_ID", "ROLES_ID" }) })
 	@ManyToMany(fetch = FetchType.LAZY)
 	private List<Role> roles;
 
