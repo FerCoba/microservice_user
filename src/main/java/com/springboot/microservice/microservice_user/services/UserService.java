@@ -3,28 +3,33 @@ package com.springboot.microservice.microservice_user.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.springboot.microservice.microservice_user.model.entities.User;
-import com.springboot.microservice.microservice_user.repository.UserInterface;
+import com.springboot.microservice.microservice_user.repository.IUserRepository;
 
+@Service
 public class UserService {
 	
 	@Autowired
-	UserInterface userInterface;
+	IUserRepository iUserRepository;
 	
 	public List<User> findAllUsers(){
-		return null;
+		return iUserRepository.findAll();
 	}
 	
-	public User findUserById(Long userId) {
-		return null;
+	public User findUserByUserName(String userName) {
+		return iUserRepository.findByUserName(userName);
 	}
 	
+	@Transactional
 	public User createNewUser(User user) {
-		return null;
+		return iUserRepository.save(user);
 	}
 
-	public void deleteUser(Long userId) {
-		
+	@Transactional
+	public void deleteUserByUserId(Long userId) {
+		iUserRepository.deleteById(userId);
 	}
 }
