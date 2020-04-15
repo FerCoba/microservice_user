@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.springboot.microservice.microservice_user.model.entities.User;
 import com.springboot.microservice.microservice_user.repository.IUserRepository;
+import com.springboot.microservice.servicec_commons.model.entities.User;
 
 @Service
 public class UserService {

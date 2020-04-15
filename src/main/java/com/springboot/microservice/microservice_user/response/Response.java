@@ -1,6 +1,7 @@
 package com.springboot.microservice.microservice_user.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.springboot.microservice.servicec_commons.model.entities.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,5 +15,5 @@ public class Response {
 
 	private String status;
 	private String message;
-	private Object users;
+	private User users;
 }
