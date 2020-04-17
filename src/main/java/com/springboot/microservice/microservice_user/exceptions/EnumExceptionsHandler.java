@@ -30,6 +30,7 @@ public enum EnumExceptionsHandler {
 
 		public ResponseEntity<Object> exceptionBuilder(Exception ex, WebRequest wr, String tipoException) {
 			ResponseError resp = null;
+			
 			if (THROW_EXCEPTION.getValues().contains((tipoException))) {
 				
 				switch (tipoException) {
